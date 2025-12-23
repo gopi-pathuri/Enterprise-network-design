@@ -1,0 +1,38 @@
+! access-switch-1.txt
+version 15.0
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+hostname Access-SW1
+!
+vlan 10,20,30,99
+!
+interface GigabitEthernet0/1
+ description Uplink to Dist-R1
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description Uplink to Dist-R2
+ switchport trunk encapsulation dot1q
+ switchport trunk native vlan 99
+ switchport mode trunk
+!
+interface Range FastEthernet0/1 - 24
+ description User Ports
+ switchport mode access
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface Vlan99
+ description Management
+ ip address 10.1.99.11 255.255.255.0
+!
+ip default-gateway 10.1.99.1
+!
+end
