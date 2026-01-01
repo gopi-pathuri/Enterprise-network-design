@@ -10,6 +10,8 @@ A fully functional **enterprise-scale network infrastructure** designed for **50
 
 **Built and tested in Cisco Packet Tracer** - showcasing real-world enterprise network design, implementation, and troubleshooting skills.
 
+**📅 Project Timeline:** Master's Capstone Project | January - May 2024 | Campbellsville University
+
 ---
 
 ## 🌟 Key Features Implemented
@@ -219,7 +221,26 @@ show interfaces trunk
 
 ## 📈 Key Achievements
 
-- ✅ **100% Connectivity**: Full cross-network communication verified
+-
+-
+- ## 🔧 Challenges & Solutions
+
+### Challenge 1: Route Redistribution Complexity
+**Problem:** Ensuring seamless communication between OSPF (core) and EIGRP (distribution) domains without routing loops.
+
+**Solution:** Implemented bidirectional redistribution with proper metric configuration and route filtering to prevent suboptimal paths.
+
+### Challenge 2: Spanning Tree Convergence
+**Problem:** Switch-8 daisy-chain topology could cause slow convergence during link failures.
+
+**Solution:** Configured STP priorities, PortFast on access ports, and BPDU Guard to optimize convergence time and prevent topology changes from end devices.
+
+### Challenge 3: VLAN Scalability
+**Problem:** Managing 8 separate DHCP pools across two distribution blocks while maintaining consistent security policies.
+
+**Solution:** Standardized VLAN numbering scheme and applied template-based configurations with ACLs consistently across both distribution routers.
+
+✅ **100% Connectivity**: Full cross-network communication verified
 - ✅ **Dynamic Routing**: OSPF + EIGRP with successful redistribution
 - ✅ **Security Hardened**: Port security, DHCP snooping, ACLs implemented
 - ✅ **Redundant Design**: STP providing backup paths
